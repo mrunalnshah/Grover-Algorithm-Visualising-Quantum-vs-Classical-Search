@@ -2,9 +2,11 @@
 
 ### TO FIND N_QUBITS REQUIRED.
 For N iterations, 
+
 $$
     n\_qubits = log_2 N
 $$
+
 for safety, you must add + 1 or apply ceiling operation as log will be a float.
 
 ### Result
