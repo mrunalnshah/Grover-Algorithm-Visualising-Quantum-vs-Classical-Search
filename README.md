@@ -1,14 +1,5 @@
 # Grover's Algorithm - Visualizing Quantum vs Classical Search
 
-### TO FIND N_QUBITS REQUIRED.
-For N iterations, 
-
-$$
-    n\\_qubits = log_2 N
-$$
-
-for safety, you must add + 1 or apply ceiling operation as log will be a float.
-
 ### Result
 #### In Classical Brute Force
 - Searches one item at a time
@@ -98,6 +89,16 @@ for safety, you must add + 1 or apply ceiling operation as log will be a float.
     </tr>
   </tbody>
 </table>
+
+
+### TO FIND N_QUBITS REQUIRED.
+For N iterations, 
+
+$$
+    n\\_qubits = log_2 N
+$$
+
+for safety, you must add + 1 or apply ceiling operation as log will be a float.
 
 
 ## Problem Statement
