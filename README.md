@@ -99,11 +99,11 @@ for safety, you must add + 1 or apply ceiling operation as log will be a float.
 
 
 ## Problem Statement
-Given an unstructured search space of size $ N = 2^n $, find a marked item $ |w⟩ $ (the "winner" or solution) using as few queries as possible. 
+Given an unstructured search space of size $N = 2^n$, find a marked item $|w⟩$ (the "winner" or solution) using as few queries as possible. 
 
-`Classical brute-force search` requires $ O(N) $ queries in the worst case.
+`Classical brute-force search` requires $O(N)$ queries in the worst case.
 
-`Grover’s algorithm` achieves this in $ O(\sqrt{N}) $ queries — a quadratic speedup.
+`Grover’s algorithm` achieves this in $O(\sqrt{N})$ queries — a quadratic speedup.
 
 ## Mathematical Foundation
 
@@ -113,7 +113,7 @@ $$
 $$
 
 We can decompose the Hilbert space into two subspaces:
-1. Good states (solutions): $ |w⟩ $ → there is M solutions (usually M = 1)
+1. Good states (solutions): $|w⟩$ → there is M solutions (usually M = 1)
 2. Bad states (non-solutions): all others
 
 ### Define
@@ -148,9 +148,9 @@ $$
 $$
 
 ## Grover's Iteration: Oracle + Diffusion
-Each iteration rotates the state by angle $ \theta $ towards the solution.
+Each iteration rotates the state by angle $\theta$ towards the solution.
 
-### Step 1: Oracle $ U_f $
+### Step 1: Oracle $U_f$
 The oracle marks the solution by flipping its phase:
 $$
     U_f |x⟩ = 
@@ -160,11 +160,11 @@ $$
     \end{cases}
 $$
 
-In matrix form: $ U_f = I - 2|w⟩⟨w| $
+In matrix form: $U_f = I - 2|w⟩⟨w|$
 This corresponds to reflection about the subspace orthogonal to |w⟩.
 Geometrically: reflects the current state over the hyperplane perpendicular to |w⟩.
 
-### Step 2: Diffusion Operator (Inversion About Average) $ U_s $
+### Step 2: Diffusion Operator (Inversion About Average) $U_s$
 $$
     U_s = 2|s⟩⟨s| - I
 $$
@@ -177,15 +177,15 @@ $$
 
 This reflects the state over the original superposition state |s⟩.
 
-One full Grover iteration $ G = U_s U_f $ performs two reflections → rotation by $ 2\theta $ in the plane spanned by |s'⟩ and |w⟩.
+One full Grover iteration $G = U_s U_f$ performs two reflections → rotation by $2\theta$ in the plane spanned by |s'⟩ and |w⟩.
 
-After $ k $ iterations:
+After $k$ iterations:
 
 $$
     G^k |s⟩ = \sin((2k+1)\theta/2) |w⟩ + \cos((2k+1)\theta/2) |s'⟩
 $$
 
-We want $ (2k+1)\theta/2 \approx \pi/2 $, so amplitude of |w⟩ ≈ 1.
+We want $(2k+1)\theta/2 \approx \pi/2$, so amplitude of |w⟩ ≈ 1.
 
 For one solution (M=1):
 
@@ -200,7 +200,7 @@ $$
 $$
 
 ## Benefit?
-1. For SHA256, Traditional Computers uses $ 2^{256} $, while a quantum computer can do it in $ 2^{128} $ iterations.
+1. For SHA256, Traditional Computers uses $2^{256}$, while a quantum computer can do it in $2^{128}$ iterations.
 
 ## Code Walkthrough.
 1. `main.py` is the file with `main()`. 
