@@ -1,5 +1,33 @@
 # Grover's Algorithm - Visualizing Quantum vs Classical Search
 
+## Grover's Algorithm
+1. Apply the Hadamard gate (for superposition) to all n qubits to put the entire search space into an equal superposition.
+
+$$
+|\psi\rangle = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} |x\rangle
+$$
+
+2. Apply Oracle, A Unitary Operator $U_f$ that identifies the solution state $|w\rangle$. It flips the phase of the solution state:
+
+$$
+U_f |x\rangle = |x\rangle \quad \text{for } x \ne w
+$$
+
+and leaves all other states unchanged:
+
+$$
+U_f |x\rangle = |x\rangle \quad \text{for } x \ne w
+$$
+
+3. Diffusion Operator(Amplification): A unitary operator that rotates the state vector closer to the desired solution. It is defined as:
+
+$$
+D = 2|\psi\rangle\langle\psi| - I
+$$
+
+4. Repeat the application of Oracle and Diffusion approximately $(\pi/4)\sqrt{N}$ times.
+5. Measure the qubits. The probability of measuring the correct answer is significantly amplified. 
+
 ### Result
 #### In Classical Brute Force
 - Searches one item at a time
