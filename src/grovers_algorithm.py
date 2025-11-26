@@ -56,6 +56,7 @@ class GroversAlgorithm:
         circuit.x(range(n))
         circuit.h(range(n))
 
+    # optimal_num_iteration = round(math.pi/4 * math.sqrt(2**n)) 
     def grover_algorithm(n, target, num_iteration=2):
         """
         Implement Grover's search algorithm.
